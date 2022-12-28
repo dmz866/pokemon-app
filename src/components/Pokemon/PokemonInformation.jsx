@@ -19,7 +19,7 @@ export function PokemonInformation() {
 
 	useEffect(() => {
 		getPokemon();
-	}, []);
+	});
 
 	if (loading) {
 		return (
