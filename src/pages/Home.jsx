@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react';
 import { PokemonList } from '../components/Pokemon/PokemonList';
 import { POKEMON_API_URL } from '../constants/constants';
+import { useGetPokemonList } from '../hooks/usePokemon';
 
 export function Home() {
-	const [pokemons, setPokemons] = useState(undefined);
-	const getPokemonList = async () => {
-		const result = await fetch(POKEMON_API_URL);
-		const data = await result.json();
-		setPokemons(data.results);
-	};
-
-	useEffect(() => {
-		getPokemonList();
-	}, []);
+	const pokemons = useGetPokemonList(POKEMON_API_URL);
 
 	return (
 		<div>
